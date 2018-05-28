@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gpg.ssm.blog.dao.UserMapper">
+
+    <!--public T queryById(Integer id);-->
+<select id="queryById">
+
+</select>
+    <!--public int update(T entity);-->
+
+    <!--public int deleteById(Integer id);-->
+
+    <!--public int insert(T entity);-->
+
+</mapper>

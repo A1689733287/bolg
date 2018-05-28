@@ -1,0 +1,128 @@
+.header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	height: 64px;
+	font-size: 30px;
+	background: rgba(255, 255, 255, 0.9);
+}
+
+.layui-header .header-container {
+	position: relative;
+}
+
+.layui-header .header-container .logo {
+	position: absolute;
+	left: 0;
+	height: 64px;
+}
+
+.layui-header .header-container .logo img {
+	position: absolute;
+	height: 64px;
+}
+
+.layui-header .header-container .layui-nav {
+	position: absolute;
+	left: 10%;
+	background: transparent;
+	width: 100%;
+}
+
+.layui-header .layui-nav-item {
+	width: 19%;
+	text-align: center;
+	height: 64px;
+}
+
+.layui-header .layui-nav-item a {
+	font-size: 20px;
+	color: #000000;
+}
+
+.layui-header .layui-nav-item a:hover {
+	color: orange;
+	transition: all .3s;
+	-webkit-transition: all .3s;
+	transform: scale(1.2);
+}
+
+.layui-header .header-container .layui-icon {
+	position: absolute;
+	left: 85%;
+	font-size: 40px;
+	display: none;
+}
+
+.layui-header .header-container .layui-nav .layui-this:after {
+	height: 3px;
+	background-color: #009688;
+}
+
+.header_back {
+	height: 65px;
+	border-bottom: #FFFFFF;
+}
+
+.layui-fixbar li {
+	background-color: #009688;
+}
+
+.banner {
+	height: 300px;
+	margin-top: 20px;
+	border: 1px solid #01AAED;
+}
+
+@media only screen and (max-width: 768px) {
+	.layui-header .header-container {
+		left: 0;
+	}
+	.layui-header .header-container .logo {
+		display: block;
+		width: 70%;
+		position: relative;
+	}
+	.layui-header .header-container .layui-nav {
+		left: 0;
+		width: 100%;
+		padding: 0;
+		display: none;
+	}
+	.layui-header .header-container .layui-nav .layui-nav-item {
+		float: left;
+		width: 100%;
+		background-color: #FFFFFF;
+	}
+	.layui-header .header-container .layui-icon {
+		top: 0;
+		display: block;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+	.layui-header .header-container {
+		left: 0;
+	}
+	.layui-header .header-container .logo {
+		display: block;
+		width: 70%;
+		position: relative;
+	}
+	.layui-header .header-container .layui-nav {
+		left: 0;
+		width: 100%;
+		padding: 0;
+		display: none;
+	}
+	.layui-header .header-container .layui-nav .layui-nav-item {
+		float: left;
+		width: 100%;
+		background-color: #FFFFFF;
+	}
+	.layui-header .header-container .layui-icon {
+		top: 0;
+		display: block;
+		left: 94%;
+	}
+}

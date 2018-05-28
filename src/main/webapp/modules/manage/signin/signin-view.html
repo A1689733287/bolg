@@ -1,0 +1,33 @@
+<div class="layui-container login">
+    <div class="login-container">
+        <div class="title">
+            <h3>后台登录</h3>
+        </div>
+        <form class="layui-form" ng-submit="signIn()">
+            <div class="layui-form-item">
+                <div class="layui-input-inline input-custom-width">
+                    <input type="text" ng-model="account" name="username" placeholder="用户名" class="layui-input"
+                           lay-verify="required"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-inline input-custom-width">
+                    <input type="password" ng-model="userpass" name="password" placeholder="密码" class="layui-input"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-inline input-custom-width">
+                    <input type="text" ng-model="captche" name="captcha" placeholder="验证码" class="layui-input"/>
+                    <div class="captcha"><img id="catpche" src="manage/getCaptcha" alt="captche" title="点击切换"
+                                              ng-click="refreshCode()"/></div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-inline input-custom-width">
+                    <button type="submit" class="layui-btn input-custom-width">立即登录</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

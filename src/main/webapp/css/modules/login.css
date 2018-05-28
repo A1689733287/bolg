@@ -1,0 +1,65 @@
+.login {
+    position: relative;
+    height: 100%;
+}
+
+.login .login-container {
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    position: absolute;
+    /* margin: 0 auto; */
+    width: 300px;
+    height: 300px;
+    box-sizing: border-box;
+}
+
+.title {
+    clear: both;
+
+    text-align: center;
+}
+
+.login .title h3 {
+    margin: 10px;
+    font-weight: bold;
+}
+
+.login .input-custom-width {
+    width: 300px;
+}
+
+.login .layui-form {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.login .layui-form-item .captcha {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    border-left: 1px solid #e6e6e6;
+}
+
+.login .layui-form-item .captcha img {
+    height: 36px;
+    cursor: pointer;
+}
+
+
+
+/*媒体查询器作响应式布局*/
+
+@media only screen and (max-width: 768px) {
+    .login {
+        width: 100%;
+        height: 100%;
+    }
+    .login .login-container .layui-form .layui-input-inline {
+        margin: 0 0 0 0;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 990px) {}

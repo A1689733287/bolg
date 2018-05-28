@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+    <title>个人博客-首页</title>
+    <link href="/favicon.ico" type="image/x-icon" rel="icon">
+    <link rel="stylesheet" type="text/css" href="plugins/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link href="css/modules/index-view.css" rel="stylesheet" type="text/css"/>
+    <link href="css/modules/header.css" rel="stylesheet" type="text/css"/>
+    <link href="css/modules/article-page.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/modules/login.css"/>
+</head>
+
+<body>
+<!--<ng-include src="'modules/common/header.html'"></ng-include>-->
+<ng-view></ng-view>
+<ng-include src="'modules/common/filxbar.html'"></ng-include>
+<script src="plugins/jquery/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="plugins/angularjs/angular.js" type="text/javascript" charset="utf-8"></script>
+<script src="plugins/angularjs-ng-router/angular-route.js" type="text/javascript" charset="utf-8"></script>
+<script src="plugins/angularjs-sanitize/angular-sanitize.js" type="text/javascript" charset="utf-8"></script>
+<script src="plugins/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="js/RequestService.js"></script>
+<script type="text/javascript" src="modules/index/index-controller.js"></script>
+<script type="text/javascript" src="modules/article/article-controller.js"></script>
+<script type="text/javascript" src="modules/manage/manage-controller.js"></script>
+<script type="text/javascript" src="modules/manage/signin/signin-controller.js"></script>
+<script type="text/javascript" src="modules/manage/signin/signin-service.js"></script>
+<script type="text/javascript" src="js/contant.js"></script>
+</body>
+</html>
