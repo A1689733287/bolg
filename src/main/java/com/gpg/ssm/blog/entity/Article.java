@@ -9,6 +9,8 @@ public class Article {
     private Integer id;// 文章id
     private String articleTitle;//文章标题
     private String articleContent;//文章内容
+    private Integer typeId;//文章大类
+    private Integer cateId;//文章小类
     private String summary;// 简要
     private Date writeDate;//编写时间
     private Date pubDate;//发布时间
@@ -79,12 +81,30 @@ public class Article {
         this.state = state;
     }
 
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
+
+    public Integer getCateId() {
+        return cateId;
+    }
+
+    public void setCateId(Integer cateId) {
+        this.cateId = cateId;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
                 "id=" + id +
                 ", articleTitle='" + articleTitle + '\'' +
                 ", articleContent='" + articleContent + '\'' +
+                ", typeId=" + typeId +
+                ", cateId=" + cateId +
                 ", summary='" + summary + '\'' +
                 ", writeDate=" + writeDate +
                 ", pubDate=" + pubDate +
