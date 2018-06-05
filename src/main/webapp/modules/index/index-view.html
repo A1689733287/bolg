@@ -1,4 +1,4 @@
-<div ng-show="showNav" class="layui-header header fly-header">
+<div class="layui-header header fly-header">
     <div class="layui-container header-container">
         <a href="" class="logo">
             <img src="images/logo.png" alt="GPG">
@@ -11,13 +11,13 @@
                 <a href="#!/article">学无止境</a>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:void (0)">闲言碎语</a>
+                <a href="#!/freetime">闲言碎语</a>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:">归档</a>
+                <a href="#!/archive">归档</a>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:">关于</a>
+                <a href="#!/about">关于</a>
             </li>
         </ul>
         <div class="layui-icon mobile-menu">&#xe668;</div>
@@ -34,7 +34,9 @@
 </script>
 
 <div class="layui-container banner">
-    <div></div>
+        <div carousel-item>
+            <div><img src="/images/banner.jpg"/></div>
+        </div>
 </div>
 <div class="layui-container main">
     <div class="main_left">
@@ -234,7 +236,7 @@
         </div>
 
         <div class="recommend">
-            <h3 class="common_h3">推荐阅读</h3>
+            <h3 class="common_h3">最新文章</h3>
             <ul class="recommend-read common_read">
                 <li>
                     <a href="###">css3动画实现时间轴</a>

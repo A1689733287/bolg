@@ -8,6 +8,7 @@ public class User {
     private String userName;
     private String passWord;
     private String aboutMe;
+    private String penName;
     private String email;
 
     public Integer getId() {
@@ -42,6 +43,14 @@ public class User {
         this.aboutMe = aboutMe;
     }
 
+    public String getPenName() {
+        return penName;
+    }
+
+    public void setPenName(String penName) {
+        this.penName = penName;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -57,6 +66,7 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", passWord='" + passWord + '\'' +
                 ", aboutMe='" + aboutMe + '\'' +
+                ", penName='" + penName + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

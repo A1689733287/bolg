@@ -1,0 +1,66 @@
+.main .main_left .layui-form-pane {
+    background: #FFFFFF;
+    padding:10px 20px 0px 20px;
+}
+
+.main .main_left .layui-card {
+    margin: 15px auto;
+}
+
+.main .main_left .layui-form-pane .layui-form .layui-form-item .layui-input-block{
+    margin-left: 0px;
+}
+
+
+.main .main_left .article-content .layui-card .layui-card-header {
+    height: 80px;
+}
+
+.main .main_left .article-content .layui-card .layui-card-header .title {
+    line-height: 24px;
+    font-size: 18px;
+    padding: 10px 0px;
+}
+
+.main .main_left .article-content .layui-card .layui-card-header .date_hits {
+    padding: 0px 10%;
+    line-height: 20px;
+}
+
+.main .main_left .article-content .layui-card .layui-card-header .date_hits .timeline {
+    float: left;
+}
+
+.main .main_left .article-content .layui-card .layui-card-header .date_hits .hits {
+    float: right;
+}
+
+.main .main_left .article-content .layui-card .article-content-card .tags {
+    margin-top: 10px;
+    line-height: 30px;
+    padding: 0 10px;
+    background-color: lightgray;
+}
+
+.main .main_left .article-row .prev {
+    float: left;
+}
+
+.main .main_left .article-row .next {
+    float: right;
+}
+
+.main .main_left .article-row .layui-card-body a {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .main .main_left .article-row .prev, .next {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+
+}

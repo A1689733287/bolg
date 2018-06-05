@@ -1,6 +1,6 @@
-app.service("RequestService", function ($http, $q) {
+app.service("RequestService", ['$http', '$q', function ($http, $q) {
     /*get请求*/
-    this.getRequest = function (url, paramType) {
+    this.getRequest = function (url, paramsType) {
         /*延迟加载*/
         var deferred = $q.defer();
         $http.get(url, paramsType).then(function (response) {
@@ -12,9 +12,9 @@ app.service("RequestService", function ($http, $q) {
     };
 
     /*post请求*/
-    this.postRequest = function (url, params, paramType) {
+    this.postRequest = function (url, params, paramsType) {
         var deferred = $q.defer();
-        $http.post(url, params, paramType).then(function (response) {
+        $http.post(url, params, paramsType).then(function (response) {
             deferred.resolve(response)
         }).catch(function (e) {
             console.log(e);
@@ -39,4 +39,4 @@ app.service("RequestService", function ($http, $q) {
         });
         return deferred.promise;
     };
-});
+}]);

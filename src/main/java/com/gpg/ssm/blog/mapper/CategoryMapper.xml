@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gpg.ssm.blog.dao.CategoryMapper">
+    <resultMap id="BaseResultMap" type="com.gpg.ssm.blog.entity.Category">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="typeId" jdbcType="BIGINT" property="typeId"/>
+        <result column="cateName" jdbcType="VARCHAR" property="cateName"/>
+        <result column="count" jdbcType="BIGINT" property="count"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, typeId, cateName, count
+  </sql>
+
+    <select id="list" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_category
+    </select>
+    <!--public T queryById(Integer id);-->
+    <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_category
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <!--public int deleteById(Integer id);-->
+    <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from t_category
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <!--public int insert(T entity);-->
+    <insert id="insert" parameterType="com.gpg.ssm.blog.entity.Category">
+        insert into t_category
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="typeid != null">
+                typeId,
+            </if>
+            <if test="catename != null">
+                cateName,
+            </if>
+            <if test="count != null">
+                count,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="typeid != null">
+                #{typeid,jdbcType=BIGINT},
+            </if>
+            <if test="catename != null">
+                #{catename,jdbcType=VARCHAR},
+            </if>
+            <if test="count != null">
+                #{count,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+
+    <!--public int update(T entity);-->
+    <update id="update" parameterType="com.gpg.ssm.blog.entity.Category">
+        update t_category
+        <set>
+            <if test="typeid != null">
+                typeId = #{typeid,jdbcType=BIGINT},
+            </if>
+            <if test="catename != null">
+                cateName = #{catename,jdbcType=VARCHAR},
+            </if>
+            <if test="count != null">
+                count = #{count,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+</mapper>

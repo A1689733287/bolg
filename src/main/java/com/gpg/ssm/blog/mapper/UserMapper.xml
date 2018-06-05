@@ -1,15 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gpg.ssm.blog.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.gpg.ssm.blog.entity.User">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="userName" jdbcType="VARCHAR" property="userName"/>
+        <result column="passWord" jdbcType="VARCHAR" property="passWord"/>
+        <result column="aboutMe" jdbcType="VARCHAR" property="aboutMe"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="penName" jdbcType="VARCHAR" property="penName"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, userName, passWord, aboutMe, email, penName
+  </sql>
+
+    <select id="list"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_user
+    </select>
+
+
 
     <!--public T queryById(Integer id);-->
-<select id="queryById">
+    <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_user
+        where id = #{id,jdbcType=BIGINT}
+    </select>
 
-</select>
-    <!--public int update(T entity);-->
-
+    <!--public User queryByUserNmaeAndPwd(User user);-->
+    <select id="queryByUserNmaeAndPwd" parameterType="com.gpg.ssm.blog.entity.User" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_user
+        where userName = #{userName} and passWord = #{passWord}
+    </select>
     <!--public int deleteById(Integer id);-->
+    <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from t_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
 
     <!--public int insert(T entity);-->
+    <insert id="insert" parameterType="com.gpg.ssm.blog.entity.User">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="username != null">
+                userName,
+            </if>
+            <if test="password != null">
+                passWord,
+            </if>
+            <if test="aboutme != null">
+                aboutMe,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="aboutme != null">
+                #{aboutme,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--public int update(T entity);-->
+    <update id="update" parameterType="com.gpg.ssm.blog.entity.User">
+        update t_user
+        <set>
+            <if test="username != null">
+                userName = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                passWord = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="aboutme != null">
+                aboutMe = #{aboutme,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
 
 </mapper>

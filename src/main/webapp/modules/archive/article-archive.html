@@ -1,0 +1,122 @@
+<div class="layui-header header fly-header">
+    <div class="layui-container header-container">
+        <a href="" class="logo">
+            <img src="images/logo.png" alt="GPG">
+        </a>
+        <ul class="layui-nav">
+            <li class="layui-nav-item">
+                <a href="#!/">首页</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#!/article">学无止境</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#!/freetime">闲言碎语</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#!/archive">归档</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#!/about">关于</a>
+            </li>
+        </ul>
+        <div class="layui-icon mobile-menu">&#xe668;</div>
+    </div>
+</div>
+<div class="header_back"></div>
+
+<script>
+    $(function () {
+        $(".mobile-menu").click(function () {
+            $(".layui-nav").slideToggle(500);
+        })
+    })
+</script>
+<div class="layui-container main">
+    <div class="main_left">
+        <h2 class="home-title">
+            <span>时间是一个伟大的作者，它会给每个人写出完美的结局来。    </span>
+            归档
+        </h2>
+        <ul class="article">
+            <li ng-repeat="article in article">
+                <h3 class="blog-tittle"><a href="#!/article/{{article.id}}">{{article.articleTitle}}</a></h3>
+                <div class="blog-info">
+                    <span class="blog_img"><a href="###"><img src="/images/logo.png"/></a></span>
+                    <p>{{article.summary}}
+                    </p>
+                </div>
+                <div class="author">
+                    <span class="cate"><i class="layui-icon layui-icon-note"></i><a href="###">慢生活</a></span>
+                    <span class="timeline">
+						<i class="layui-icon layui-icon-log"></i>
+						2018-02-10</span>
+                    <span class="hits"><i class="layui-icon layui-icon-face-smile-fine"></i>(333)</span>
+                    <span class="more-info"><a href="###">阅读更多</a></span>
+                    <div class="box-border"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="main_right">
+        <div class="cate_menu">
+            <h3 class="common_h3">分类</h3>
+            <ul class="cate_menu_item">
+                <li><a class="layui-btn layui-btn-primary">WEB</a></li>
+                <li><a class="layui-btn layui-btn-primary">MyBatis</a></li>
+                <li><a class="layui-btn layui-btn-primary">Python</a></li>
+                <li><a class="layui-btn layui-btn-primary">Python</a></li>
+            </ul>
+        </div>
+        <div class="top_hits">
+            <h3 class="common_h3">点击排行</h3>
+            <ul class="hot_top common_read">
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="recommend">
+            <h3 class="common_h3">最新文章</h3>
+            <ul class="recommend-read common_read">
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+                <li>
+                    <a href="###">css3动画实现时间轴</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+</div>

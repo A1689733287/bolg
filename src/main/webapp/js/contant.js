@@ -13,3 +13,9 @@ var cfg_file = {
 		'Content-Type' : undefined
 	}
 };
+
+var cfg_text = {
+    headers : {
+        'Content-Type' : 'text/xml;charset=utf-8;'
+    }
+};

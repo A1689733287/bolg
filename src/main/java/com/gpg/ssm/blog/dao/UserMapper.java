@@ -1,4 +1,7 @@
 package com.gpg.ssm.blog.dao;
 
-public interface UserMapper<T> extends BaseMapper<T> {
+import com.gpg.ssm.blog.entity.User;
+
+public interface UserMapper extends BaseMapper<User> {
+    public User queryByUserNmaeAndPwd(User user);
 }

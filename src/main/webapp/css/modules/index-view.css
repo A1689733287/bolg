@@ -1,268 +1,268 @@
 .main {
-	margin: 30px auto;
+    margin: 30px auto;
 }
-
 
 /*左侧栏*/
 
 .main .main_left {
-	width: 66%;
-	float: left;
+    width: 66%;
+    float: left;
 }
-
 
 /*文章头部*/
 
 .main .main_left .home-title {
-	padding: 0 10px;
-	line-height: 40px;
-	height: 40px;
-	background: #FFFFFF;
-	font-size: 18px;
-	border-bottom: #08D 2px solid;
-	position: relative;
+    padding: 0 10px;
+    line-height: 40px;
+    height: 40px;
+    background: #FFFFFF;
+    font-size: 18px;
+    border-bottom: #08D 2px solid;
+    position: relative;
 }
-
 
 /*文章头部显示信息*/
 
 .main .main_left .home-title span {
-	float: right;
-	font-weight: normal;
-	font-size: 14px;
-	height: 42px;
-	overflow: hidden;
-	position: absolute;
-	right: 0;
-	width: 100%;
-	text-align: right;
+    float: right;
+    font-weight: normal;
+    font-size: 14px;
+    height: 42px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    text-align: right;
 }
-
 
 /*文章列表样式*/
 
 .main .main_left .article li {
-	position: relative;
-	background-color: #FFFFFF;
-	margin: 0px 0px 20px 0px;
-	opacity: .8;
-	border-radius: 10px;
-	padding: 10px;
+    position: relative;
+    background-color: #FFFFFF;
+    margin: 0px 0px 20px 0px;
+    opacity: .8;
+    border-radius: 10px;
+    padding: 10px;
 }
 
+.main .main_left .article li .blog-tittle a {
+    color: #555
+}
 
 /*文章列表移入事件*/
 
 .main .main_left .article li:hover {
-	box-shadow: #000 1px 1px 10px
+    box-shadow: #000 1px 1px 10px
 }
-
 
 /*文章下面的下划线*/
 
 .main .main_left .article li .box-border {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 0;
-	background: #009E94;
-	height: 2px;
-	-moz-transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
-	-webkit-transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
-	transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background: #009E94;
+    height: 2px;
+    -moz-transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main .main_left .article li:hover .box-border {
-	width: 100%;
+    width: 100%;
 }
-
 
 /*文章标题显示*/
 
 .main .main_left .article li .blog-tittle {
-	line-height: 30px;
-	height: 30px;
-	margin: 10px 0;
+    line-height: 30px;
+    height: 30px;
+    margin: 10px 0;
 }
-
 
 /*显示文章列表的宽度*/
 
 .main .main_left .article li .blog-info {
-	width: 100%;
+    width: 100%;
 }
-
 
 /*文章中的图片*/
 
 .main .main_left .article li .blog-info .blog_img {
-	overflow: hidden;
-	width: 30%;
-	height: 100px;
-	display: block;
-	float: left;
-	margin-right: 20px;
-	border-radius: 5px;
-	background: #333333;
-	opacity: 1;
+    overflow: hidden;
+    width: 30%;
+    height: 100px;
+    display: block;
+    float: left;
+    margin-right: 20px;
+    border-radius: 5px;
+    background: #333333;
+    opacity: 1;
 }
 
 .main .main_left .article li .blog-info .blog_img img {
-	transition: all 1s;
+    transition: all 1s;
 }
-
 
 /*文章鼠标移入事件*/
 
-.main .main_left .article li .blog-info .blog_img:hover img{
-	transform: scale(1.4);
+.main .main_left .article li .blog-info .blog_img:hover img {
+    transform: scale(1.4);
 }
-
 
 /*文章内容*/
 
 .main .main_left .article li .blog-info p {
-	color: #515151;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 3;
-	overflow: hidden;
-	line-height: 24px;
-	text-indent: 20px;
+    color: #515151;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    line-height: 24px;
+    text-indent: 20px;
 }
-
 
 /*文章中的时间栏*/
 
 .main .main_left .article li .author {
-	width: 100%;
-	overflow: hidden;
-	clear: both;
-	margin: 20px 0 0 0;
-	display: inline-block;
-	color: #838383;
-	font-size: 12px;
+    width: 100%;
+    overflow: hidden;
+    clear: both;
+    margin: 20px 0 0 0;
+    display: inline-block;
+    color: #838383;
+    font-size: 12px;
 }
-
 
 /*文章li中的阅读更多*/
 
 .main .main_left .article li .more-info {
-	float: right;
+    float: right;
 }
-
 
 /*左边文章的图标颜色*/
 
 .main .main_left .article li .layui-icon-note {
-	color: orangered;
+    color: orangered;
 }
 
 .main .main_left .article li .layui-icon-log {
-	color: chartreuse;
+    color: chartreuse;
 }
 
 .main .main_left .article li .layui-icon-face-smile-fine {
-	color: coral;
+    color: coral;
 }
-
 
 /*右边栏开始*/
 
 .main .main_right {
-	width: 32%;
-	float: right;
-	position: relative;
+    width: 32%;
+    float: right;
+    position: relative;
 }
-
 
 /*浏览菜单*/
 
 .main .main_right .cate_menu {
-	border-radius: 10px;
-	background: #FFFFFF;
-	opacity: .8;
+    border-radius: 10px;
+    background: #FFFFFF;
+    opacity: .8;
+    padding: 0px 0px 10px 0px;
+}
+
+.main .main_right .cate_menu>p{
+    background: #f6f6f6;
+    margin: 5px 10px;
+    padding: 10px 0px;
+    border-radius: 5px;
+    text-shadow: rgba(255, 255, 255, 0.3) 0px 1px;
 }
 
 .main .main_right .common_h3 {
-	padding: 0 10px;
-	line-height: 40px;
-	height: 40px;
-	font-size: 18px;
-	border-bottom: #08D 2px solid;
-	position: relative;
+    padding: 0 10px;
+    line-height: 40px;
+    height: 40px;
+    font-size: 18px;
+    border-bottom: #08D 2px solid;
+    position: relative;
 }
 
 .main .main_right .cate_menu .cate_menu_item {
-	margin: 0px 0 20px
+    margin: 0px 0;
 }
 
 .main .main_right .cate_menu .cate_menu_item li {
-	width: 42%;
-	display: inline-block;
-	margin: 10px 3.5%;
+    width: 42%;
+    display: inline-block;
+    margin: 10px 3.5%;
 }
 
 .main .main_right .cate_menu .cate_menu_item li a {
-	width: 100%;
+    width: 100%;
 }
 
 .main .main_right .cate_menu .cate_menu_item li a {
-	width: 100%;
+    width: 100%;
 }
 
 .main .main_right .cate_menu .cate_menu_item li:hover .layui-btn-primary {
-	background: #009688;
-	color: #FFFFFF;
+    background: #009688;
+    color: #FFFFFF;
 }
 
 .main .main_right .top_hits,
 .recommend {
-	border-radius: 10px;
-	background: #FFFFFF;
-	opacity: .8;
+    border-radius: 10px;
+    background: #FFFFFF;
+    opacity: .8;
 }
 
 .main .main_right .common_read li {
-	margin: 20px;
+    margin: 20px;
 }
 
 .main .main_right .common_read li:last-child {
-	padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .main .main_right .common_read li a {
-	width: 100%;
+    width: 100%;
 }
-
 
 /*媒体查询器作响应式布局*/
 
 @media only screen and (max-width: 768px) {
-	.main .main_left {
-		width: 100%;
-	}
-	.main .main_right {
-		display: none;
-	}
-	.main .main_left .home-title span {
-		display: none;
-	}
-	.main .main_left .article li .blog-info .blog_img {
-		overflow: hidden;
-		width: 100%;
-		height: 100px;
-		display: block;
-		border-radius: 5px;
-		background: #333333;
-	}
-	.main .main_left .article li .blog-info p {
-		width: 100%;
-	}
+    .main .main_left {
+        width: 100%;
+    }
+
+    .main .main_right {
+        display: none;
+    }
+
+    .main .main_left .home-title span {
+        display: none;
+    }
+
+    .main .main_left .article li .blog-info .blog_img {
+        overflow: hidden;
+        width: 100%;
+        height: 100px;
+        display: block;
+        border-radius: 5px;
+        background: #333333;
+    }
+
+    .main .main_left .article li .blog-info p {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 990px) {
-	.main {
-		width: 100%;
-	}
+    .main {
+        width: 100%;
+    }
 }

@@ -3,7 +3,7 @@ package com.gpg.ssm.blog.entity;
 /**
  * 游客表
  */
-public class guest {
+public class Guest {
     private Integer id; //游客id
     private String guestName;// 游客姓名
 
@@ -25,7 +25,7 @@ public class guest {
 
     @Override
     public String toString() {
-        return "guest{" +
+        return "Guest{" +
                 "id=" + id +
                 ", guestName='" + guestName + '\'' +
                 '}';

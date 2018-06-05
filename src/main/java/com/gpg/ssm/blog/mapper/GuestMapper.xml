@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gpg.ssm.blog.dao.GuestMapper">
+    <resultMap id="BaseResultMap" type="com.gpg.ssm.blog.entity.Guest">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="guestName" jdbcType="VARCHAR" property="guestname"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, guestName
+  </sql>
+    <!--public T queryById(Integer id);-->
+    <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_guest
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <!--public int deleteById(Integer id);-->
+    <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from t_guest
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <!--public int insert(T entity);-->
+    <insert id="insert" parameterType="com.gpg.ssm.blog.entity.Guest">
+        insert into t_guest
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="guestname != null">
+                guestName,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="guestname != null">
+                #{guestname,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <!--public int update(T entity);-->
+    <update id="update" parameterType="com.gpg.ssm.blog.entity.Guest">
+        update t_guest
+        <set>
+            <if test="guestname != null">
+                guestName = #{guestname,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+</mapper>

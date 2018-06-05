@@ -231,6 +231,14 @@
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson}</version>
         </dependency>
+
+        <!--tomcat-->
+        <dependency>
+            <groupId>Javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>3.0-alpha-1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

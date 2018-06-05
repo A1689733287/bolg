@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h4 class="modal-title">添加</h4>
+</div>
+<div class="modal-body">
+    <div class="input-group">
+        <span class="input-group-addon">名称</span>
+        <input type="text" class="form-control" ng-model="category.cateName"/>
+    </div>
+    <br/>
+    <div class="input-group">
+        <span class="input-group-addon">类别</span>
+        <select class="form-control" required>
+            <option ng-model="category.typeId" value="{{type.id}}">请选择类别</option>
+        </select>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="cancelAddCategory()"
+    >取消
+    </button>
+    <button type="button" ng-click="confirmAddCategory(category)"
+            class="btn btn-success">确认
+    </button>
+</div>

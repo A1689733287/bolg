@@ -4,9 +4,16 @@ import com.gpg.ssm.blog.dao.BaseMapper;
 import com.gpg.ssm.blog.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 public class BaseServiceImpl<T> implements BaseService<T> {
     @Autowired
     BaseMapper<T> baseMapper;
+
+    @Override
+    public List<T> list() {
+        return baseMapper.list();
+    }
 
     @Override
     public T queryById(Integer id) {
