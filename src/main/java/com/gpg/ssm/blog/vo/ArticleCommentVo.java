@@ -1,4 +1,4 @@
-package com.gpg.ssm.blog;
+package com.gpg.ssm.blog.vo;
 
 import com.gpg.ssm.blog.entity.Comment;
 import com.gpg.ssm.blog.entity.Guest;

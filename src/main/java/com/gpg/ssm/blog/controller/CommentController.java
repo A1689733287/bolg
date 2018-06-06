@@ -1,10 +1,9 @@
 package com.gpg.ssm.blog.controller;
 
-import com.gpg.ssm.blog.ArticleCommentVo;
+import com.gpg.ssm.blog.vo.ArticleCommentVo;
 import com.gpg.ssm.blog.common.CommonResult;
 import com.gpg.ssm.blog.entity.Comment;
 import com.gpg.ssm.blog.service.CommentService;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
