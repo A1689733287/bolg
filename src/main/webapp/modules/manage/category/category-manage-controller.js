@@ -2,16 +2,11 @@ app.controller("CategoryManageController", ["$location", "$uibModal", "$scope",
     "CategoryManageService", function ($location, $uibModal, $scope,
                                        CategoryManageService) {
         $scope.list = function () {
-            CategoryManageService.list().then(function (data) {
-                console.log(data)
-                $scope.category = data.data;
+            CategoryManageService.list().then(function (response) {
+                console.log(response.data)
+                $scope.categorys = response.data.data;
             })
         }
-
-        CategoryManageService.listtype().then(function (response) {
-           console.log(response)
-        });
-
         $scope.editArticle = function (category) {
             CategoryManageService.getArticles(category.id).then(function (data) {
                 // 需要判断请求是否成功，其他地方也是，暂时还没有进行处理

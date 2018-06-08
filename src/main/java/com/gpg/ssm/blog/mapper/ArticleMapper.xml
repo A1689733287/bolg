@@ -6,21 +6,54 @@
         <result column="articleTitle" jdbcType="VARCHAR" property="articleTitle"/>
         <result column="articleContent" jdbcType="VARCHAR" property="articleContent"/>
         <result column="cateId" jdbcType="BIGINT" property="cateId"/>
-        <result column="typeId" jdbcType="BIGINT" property="typeId"/>
         <result column="hits" jdbcType="BIGINT" property="hits"/>
         <result column="summary" jdbcType="VARCHAR" property="summary"/>
         <result column="articleImage" jdbcType="VARCHAR" property="articleImage"/>
         <result column="writeDate" jdbcType="DATE" property="writeDate"/>
         <result column="pubDate" jdbcType="DATE" property="pubDate"/>
         <result column="tags" jdbcType="VARCHAR" property="tags"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
         <result column="state" jdbcType="INTEGER" property="state"/>
     </resultMap>
 
-
     <sql id="Base_Column_List">
-    id, articleTitle, articleContent, cateId, hits, typeId, articleImage,summary, writeDate, pubDate, tags,
+    id, articleTitle, articleContent, cateId, hits, code, articleImage,summary, writeDate, pubDate, tags,
     state
   </sql>
+
+
+    <select id="list" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_article
+    </select>
+
+
+
+    <!--public List<Article> queryHis();-->
+    <select id="queryHis" parameterType="java.lang.String" resultType="com.gpg.ssm.blog.vo.ArticleVo">
+        select
+        <include refid="Base_Column_List"/>
+        from t_article
+        order by hits desc limit 6
+    </select>
+
+
+    <select id="queryNewRank" parameterType="java.lang.String" resultType="com.gpg.ssm.blog.vo.ArticleVo">
+        select
+        <include refid="Base_Column_List"/>
+        from t_article
+        order by id desc limit 6
+    </select>
+
+    <!--public Article queryByCode(String code);-->
+    <select id="queryByCode" parameterType="java.lang.String" resultType="com.gpg.ssm.blog.vo.ArticleVo">
+        select
+        <include refid="Base_Column_List"/>
+        from t_article
+        where code = #{code}
+    </select>
+
     <!--public T queryById(Integer id);-->
     <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -29,12 +62,12 @@
         where id = #{id,jdbcType=BIGINT}
     </select>
 
-    <!--public List<Article> queryBytypeId(Integer id);-->
-    <select id="queryBytypeId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--public List<Article> queryByState(Integer state);-->
+    <select id="queryByState" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from t_article
-        where typeId = #{itypeId,jdbcType=BIGINT}
+        where state = #{state}
     </select>
     <!--public int deleteById(Integer id);-->
     <delete id="deleteById" parameterType="java.lang.Integer">
@@ -43,31 +76,29 @@
   </delete>
 
     <!--public int insert(T entity);-->
-    <insert id="insert" parameterType="com.gpg.ssm.blog.entity.Article" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+    <insert id="insert" parameterType="com.gpg.ssm.blog.entity.Article" keyProperty="id" keyColumn="id"
+            useGeneratedKeys="true">
         insert into t_article
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 id,
             </if>
-            <if test="articletitle != null">
+            <if test="articleTitle != null">
                 articleTitle,
             </if>
-            <if test="articlecontent != null">
+            <if test="articleContent != null">
                 articleContent,
             </if>
-            <if test="cateid != null">
+            <if test="cateId != null">
                 cateId,
-            </if>
-            <if test="typeid != null">
-                typeId,
             </if>
             <if test="summary != null">
                 summary,
             </if>
-            <if test="writedate != null">
+            <if test="writeDate != null">
                 writeDate,
             </if>
-            <if test="pubdate != null">
+            <if test="pubDate != null">
                 pubDate,
             </if>
             <if test="tags != null">
@@ -76,37 +107,46 @@
             <if test="state != null">
                 state,
             </if>
+            <if test="hits != null">
+                hits,
+            </if>
+            <if test="articleImage != null">
+                articleImage,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 #{id,jdbcType=BIGINT},
             </if>
-            <if test="articletitle != null">
-                #{articletitle,jdbcType=VARCHAR},
+            <if test="articleTitle != null">
+                #{articleTitle,jdbcType=VARCHAR},
             </if>
-            <if test="articlecontent != null">
-                #{articlecontent,jdbcType=VARCHAR},
+            <if test="articleContent != null">
+                #{articleContent,jdbcType=VARCHAR},
             </if>
-            <if test="cateid != null">
-                #{cateid,jdbcType=BIGINT},
-            </if>
-            <if test="typeid != null">
-                #{typeid,jdbcType=BIGINT},
+            <if test="cateId != null">
+                #{cateId,jdbcType=BIGINT},
             </if>
             <if test="summary != null">
                 #{summary,jdbcType=VARCHAR},
             </if>
-            <if test="writedate != null">
-                #{writedate,jdbcType=DATE},
+            <if test="writeDate != null">
+                #{writeDate,jdbcType=DATE},
             </if>
-            <if test="pubdate != null">
-                #{pubdate,jdbcType=DATE},
+            <if test="pubDate != null">
+                #{pubDate,jdbcType=DATE},
             </if>
             <if test="tags != null">
                 #{tags,jdbcType=VARCHAR},
             </if>
             <if test="state != null">
                 #{state,jdbcType=INTEGER},
+            </if>
+            <if test="hits != null">
+                #{hits,jdbcType=INTEGER},
+            </if>
+            <if test="articleImage != null">
+                #{articleImage,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -115,32 +155,36 @@
     <update id="update" parameterType="com.gpg.ssm.blog.entity.Article">
         update t_article
         <set>
-            <if test="articletitle != null">
-                articleTitle = #{articletitle,jdbcType=VARCHAR},
+            <if test="articleTitle != null">
+                articleTitle = #{articleTitle,jdbcType=VARCHAR},
             </if>
-            <if test="articlecontent != null">
-                articleContent = #{articlecontent,jdbcType=VARCHAR},
+            <if test="articleContent != null">
+                articleContent = #{articleContent,jdbcType=VARCHAR},
             </if>
-            <if test="cateid != null">
-                cateId = #{cateid,jdbcType=BIGINT},
-            </if>
-            <if test="typeid != null">
-                typeId = #{typeid,jdbcType=BIGINT},
+            <if test="cateId != null">
+                cateId = #{cateId,jdbcType=BIGINT},
             </if>
             <if test="summary != null">
                 summary = #{summary,jdbcType=VARCHAR},
             </if>
-            <if test="writedate != null">
-                writeDate = #{writedate,jdbcType=DATE},
+            <if test="writeDate != null">
+                writeDate = #{writeDate,jdbcType=DATE},
             </if>
-            <if test="pubdate != null">
-                pubDate = #{pubdate,jdbcType=DATE},
+            <if test="pubDate != null">
+                pubDate = #{pubDate,jdbcType=DATE},
             </if>
             <if test="tags != null">
                 tags = #{tags,jdbcType=VARCHAR},
             </if>
             <if test="state != null">
                 state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="hits != null">
+                hits = #{hits,jdbcType=INTEGER},
+            </if>
+
+            <if test="articleImage != null">
+                articleImage = #{articleImage,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=BIGINT}

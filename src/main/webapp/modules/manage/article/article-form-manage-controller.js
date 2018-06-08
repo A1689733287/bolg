@@ -3,18 +3,18 @@ app.controller("ArticleFormManageController", ["$scope", "$location","$uibModal"
 
 //	console.log($routeParams.articleId)
     $scope.get = function (articleId) {
-        ArticleManageService.get(articleId).then(function (data) {
+        ArticleManageService.get(articleId).then(function (response) {
 //			console.log(data);
-            $scope.article = data.resultData;
-            if (data.resultData.tagNames != null) {
-                $scope.selectedTagNames = data.resultData.tagNames;
+            $scope.article = responsedata.resultData;
+            if (response.data.data.tagNames != null) {
+                $scope.selectedTagNames = response.data.data.tagNames;
             } else {
                 $scope.selectedTagNames = new Array();
             }
         });
     }
     $scope.getTypes = function () {
-        ArticleManageService.getTypes().then(function (data) {
+        ArticleManageService.getTypes().then(function (response) {
 
         });
     }

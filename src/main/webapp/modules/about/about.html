@@ -8,13 +8,10 @@
                 <a href="#!/">首页</a>
             </li>
             <li class="layui-nav-item">
-                <a href="#!/article">学无止境</a>
+                <a href="#!/article">文章</a>
             </li>
             <li class="layui-nav-item">
-                <a href="#!/freetime">闲言碎语</a>
-            </li>
-            <li class="layui-nav-item">
-                <a href="#!/freetime">闲言碎语</a>
+                <a href="#!/archive">归档</a>
             </li>
             <li class="layui-nav-item">
                 <a href="#!/about">关于</a>
@@ -35,7 +32,7 @@
 <div class="layui-container main">
     <div class="main_left">
         <h2 class="home-title">
-            <span>不要轻易放弃。学习成长的路上，我们长路漫漫，只因学无止境。</span>
+            <span>任何时候都需要保持冷静。</span>
             冷静分析
         </h2>
         <div class="article-content">
@@ -59,50 +56,18 @@
         <div class="top_hits">
             <h3 class="common_h3">点击排行</h3>
             <ul class="hot_top common_read">
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
+                <li ng-repeat="art in hitsRank">
+                    <a href="#!/article/{{art.code}}">{{art.articleTitle}}</a>
                 </li>
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
-                </li>
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
-                </li>
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
-                </li>
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
-                </li>
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
-                </li>
-
             </ul>
         </div>
 
         <div class="recommend">
             <h3 class="common_h3">最新文章</h3>
             <ul class="recommend-read common_read">
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
+                <li ng-repeat="art in newRank">
+                    <a href="#!/article/{{art.code}}">{{art.articleTitle}}</a>
                 </li>
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
-                </li>
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
-                </li>
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
-                </li>
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
-                </li>
-                <li>
-                    <a href="###">css3动画实现时间轴</a>
-                </li>
-
             </ul>
         </div>
     </div>

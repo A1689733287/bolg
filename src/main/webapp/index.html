@@ -5,14 +5,14 @@
     <meta charset="utf-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>个人博客-首页</title>
+    <title>莫言离殇</title>
     <link href="/favicon.ico" type="image/x-icon" rel="icon">
     <link rel="stylesheet" type="text/css" href="plugins/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="css/base.css">
     <link href="css/modules/index-view.css" rel="stylesheet" type="text/css"/>
     <link href="css/modules/header.css" rel="stylesheet" type="text/css"/>
     <link href="css/modules/article-page.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/modules/login.css" rel="stylesheet" type="text/css"/>
+    <link href="css/modules/login.css" rel="stylesheet" type="text/css"/>
     <link href="css/modules/article-detail.css" rel="stylesheet" type="text/css"/>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="plugins/prims/prism.css" rel="stylesheet" type="text/css"/>
@@ -37,6 +37,7 @@
     <script src="plugins/prims/prism.js" type="text/javascript" charset="utf-8"></script>
     <script src="plugins/wangEditor/release/wangEditor.js" type="text/javascript" charset="utf-8"></script>
     <script src="plugins/jquery/md5.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="plugins/layui/lay/modules/util.js" type="text/javascript" charset="utf-8"></script>
 
 </head>
 
@@ -48,12 +49,13 @@
 <script type="text/javascript" src="js/RequestService.js"></script>
 <script type="text/javascript" src="js/contant.js" defer></script>
 <script type="text/javascript" src="modules/index/index-controller.js"></script>
+<!-- articles -->
 <script type="text/javascript" src="modules/article/article-controller.js"></script>
 <script type="text/javascript" src="modules/article/article-service.js"></script>
-
 <script type="text/javascript" src="modules/article/article-detail-controller.js"></script>
-<script type="text/javascript" src="modules/article/article-detaile-service.js"></script>
+<script type="text/javascript" src="modules/article/article-detail-service.js"></script>
 
+<script type="text/javascript" src="modules/article/CommentService.js"></script>
 
 <script type="text/javascript" src="modules/manage/manage-controller.js"></script>
 
@@ -62,9 +64,6 @@
 
 <script type="text/javascript" src="modules/archive/article-archive-controller.js"></script>
 <script type="text/javascript" src="modules/archive/article-archive-service.js"></script>
-
-<script type="text/javascript" src="modules/freetime/freetime-article-controller.js"></script>
-<script type="text/javascript" src="modules/freetime/freetime-article-service.js"></script>
 
 <script type="text/javascript" src="modules/about/about-me-controller.js"></script>
 <script type="text/javascript" src="modules/about/about-me-service.js"></script>
@@ -85,6 +84,6 @@
 <script type="text/javascript" src="modules/manage/tag/tag-manage-controller.js"></script>
 <script type="text/javascript" src="modules/manage/tag/tag-manage-service.js"></script>
 
-
+<script type="text/javascript" src="modules/common/common-service.js"></script>
 </body>
 </html>

@@ -37,22 +37,22 @@
             <if test="id != null">
                 id,
             </if>
-            <if test="commentid != null">
+            <if test="commentId != null">
                 commentId,
             </if>
-            <if test="replytype != null">
+            <if test="replyType != null">
                 replyType,
             </if>
-            <if test="replyid != null">
+            <if test="replyId != null">
                 replyId,
             </if>
             <if test="content != null">
                 content,
             </if>
-            <if test="guestid != null">
+            <if test="guestId != null">
                 guestId,
             </if>
-            <if test="toguestid != null">
+            <if test="toGuestId != null">
                 toGuestId,
             </if>
         </trim>
@@ -60,23 +60,23 @@
             <if test="id != null">
                 #{id,jdbcType=BIGINT},
             </if>
-            <if test="commentid != null">
-                #{commentid,jdbcType=BIGINT},
+            <if test="commentId != null">
+                #{commentId,jdbcType=BIGINT},
             </if>
-            <if test="replytype != null">
-                #{replytype,jdbcType=BIGINT},
+            <if test="replyType != null">
+                #{replyType,jdbcType=BIGINT},
             </if>
-            <if test="replyid != null">
-                #{replyid,jdbcType=BIGINT},
+            <if test="replyId != null">
+                #{replyId,jdbcType=BIGINT},
             </if>
             <if test="content != null">
                 #{content,jdbcType=VARCHAR},
             </if>
-            <if test="guestid != null">
-                #{guestid,jdbcType=BIGINT},
+            <if test="guestId != null">
+                #{guestId,jdbcType=BIGINT},
             </if>
-            <if test="toguestid != null">
-                #{toguestid,jdbcType=BIGINT},
+            <if test="toguestId != null">
+                #{toguestId,jdbcType=BIGINT},
             </if>
         </trim>
     </insert>
@@ -84,23 +84,23 @@
     <update id="update" parameterType="com.gpg.ssm.blog.entity.Reply">
         update t_reply
         <set>
-            <if test="commentid != null">
-                commentId = #{commentid,jdbcType=BIGINT},
+            <if test="commentId != null">
+                commentId = #{commentId,jdbcType=BIGINT},
             </if>
-            <if test="replytype != null">
-                replyType = #{replytype,jdbcType=BIGINT},
+            <if test="replyType != null">
+                replyType = #{replyType,jdbcType=BIGINT},
             </if>
-            <if test="replyid != null">
-                replyId = #{replyid,jdbcType=BIGINT},
+            <if test="replyId != null">
+                replyId = #{replyId,jdbcType=BIGINT},
             </if>
             <if test="content != null">
                 content = #{content,jdbcType=VARCHAR},
             </if>
-            <if test="guestid != null">
-                guestId = #{guestid,jdbcType=BIGINT},
+            <if test="guestId != null">
+                guestId = #{guestId,jdbcType=BIGINT},
             </if>
-            <if test="toguestid != null">
-                toGuestId = #{toguestid,jdbcType=BIGINT},
+            <if test="toGuestId != null">
+                toGuestId = #{toGuestId,jdbcType=BIGINT},
             </if>
         </set>
         where id = #{id,jdbcType=BIGINT}

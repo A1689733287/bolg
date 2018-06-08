@@ -4,6 +4,7 @@ import com.gpg.ssm.blog.dao.UserMapper;
 import com.gpg.ssm.blog.entity.User;
 import com.gpg.ssm.blog.service.BaseService;
 import com.gpg.ssm.blog.service.UserService;
+import com.gpg.ssm.blog.vo.UserVo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,7 +16,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     private UserMapper userMapper;
 
     @Override
-    public User queryByUserNmaeAndPwd(User user) {
+    public User queryByUserNmaeAndPwd(UserVo user) {
         return userMapper.queryByUserNmaeAndPwd(user);
     }
 }

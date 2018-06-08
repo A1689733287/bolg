@@ -3,7 +3,7 @@
 <mapper namespace="com.gpg.ssm.blog.dao.GuestMapper">
     <resultMap id="BaseResultMap" type="com.gpg.ssm.blog.entity.Guest">
         <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="guestName" jdbcType="VARCHAR" property="guestname"/>
+        <result column="guestName" jdbcType="VARCHAR" property="guestName"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -22,13 +22,13 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
     <!--public int insert(T entity);-->
-    <insert id="insert" parameterType="com.gpg.ssm.blog.entity.Guest">
+    <insert id="insert" parameterType="com.gpg.ssm.blog.entity.Guest" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into t_guest
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 id,
             </if>
-            <if test="guestname != null">
+            <if test="guestName != null">
                 guestName,
             </if>
         </trim>
@@ -36,8 +36,8 @@
             <if test="id != null">
                 #{id,jdbcType=BIGINT},
             </if>
-            <if test="guestname != null">
-                #{guestname,jdbcType=VARCHAR},
+            <if test="guestName != null">
+                #{guestName,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -45,8 +45,8 @@
     <update id="update" parameterType="com.gpg.ssm.blog.entity.Guest">
         update t_guest
         <set>
-            <if test="guestname != null">
-                guestName = #{guestname,jdbcType=VARCHAR},
+            <if test="guestName != null">
+                guestName = #{guestName,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=BIGINT}

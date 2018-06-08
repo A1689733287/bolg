@@ -171,9 +171,10 @@
     background: #FFFFFF;
     opacity: .8;
     padding: 0px 0px 10px 0px;
+    margin-bottom: 20px;
 }
 
-.main .main_right .cate_menu>p{
+.main .main_right .cate_menu > p {
     background: #f6f6f6;
     margin: 5px 10px;
     padding: 10px 0px;
@@ -218,18 +219,23 @@
     border-radius: 10px;
     background: #FFFFFF;
     opacity: .8;
+    padding: 10px 0;
+    margin: 20px 0;
 }
 
-.main .main_right .common_read li {
+.main .main_right .common_read >li {
     margin: 20px;
-}
-
-.main .main_right .common_read li:last-child {
-    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
 }
 
 .main .main_right .common_read li a {
     width: 100%;
+    color: #555;
+    text-decoration-line: none;
+}
+
+.main .main_right .common_read li a:hover {
+    color: skyblue;
 }
 
 /*媒体查询器作响应式布局*/

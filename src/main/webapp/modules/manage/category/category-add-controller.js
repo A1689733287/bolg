@@ -5,10 +5,4 @@ app.controller("addCategoryCtrl", ['CategoryManageService', '$uibModalInstance',
     $scope.cancelAddCategory = function () {
         $uibModalInstance.dismiss('cancel');
     }
-    var getList = function () {
-        CategoryManageService.listtype().then(function (response) {
-            console.log(response)
-        });
-    }
-    getList()
 }])

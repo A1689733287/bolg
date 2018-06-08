@@ -6,7 +6,6 @@ package com.gpg.ssm.blog.entity;
 public class Category {
     private Integer id; //分类id
     private String cateName; // 类别名称
-    private Integer typeId;// 大类ID
     private Integer count;//文章数量
 
     public Category() {
@@ -36,20 +35,11 @@ public class Category {
         this.count = count;
     }
 
-    public Integer getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
-    }
-
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
                 ", cateName='" + cateName + '\'' +
-                ", typeId=" + typeId +
                 ", count=" + count +
                 '}';
     }

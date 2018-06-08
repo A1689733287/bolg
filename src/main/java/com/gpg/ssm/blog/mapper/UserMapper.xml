@@ -51,13 +51,13 @@
             <if test="id != null">
                 id,
             </if>
-            <if test="username != null">
+            <if test="userName != null">
                 userName,
             </if>
-            <if test="password != null">
+            <if test="passWord != null">
                 passWord,
             </if>
-            <if test="aboutme != null">
+            <if test="aboutMe != null">
                 aboutMe,
             </if>
             <if test="email != null">
@@ -68,14 +68,14 @@
             <if test="id != null">
                 #{id,jdbcType=BIGINT},
             </if>
-            <if test="username != null">
-                #{username,jdbcType=VARCHAR},
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
             </if>
-            <if test="password != null">
-                #{password,jdbcType=VARCHAR},
+            <if test="passWord != null">
+                #{passWord,jdbcType=VARCHAR},
             </if>
-            <if test="aboutme != null">
-                #{aboutme,jdbcType=VARCHAR},
+            <if test="aboutMe != null">
+                #{aboutMe,jdbcType=VARCHAR},
             </if>
             <if test="email != null">
                 #{email,jdbcType=VARCHAR},
@@ -87,14 +87,14 @@
     <update id="update" parameterType="com.gpg.ssm.blog.entity.User">
         update t_user
         <set>
-            <if test="username != null">
-                userName = #{username,jdbcType=VARCHAR},
+            <if test="userName != null">
+                userName = #{userName,jdbcType=VARCHAR},
             </if>
-            <if test="password != null">
-                passWord = #{password,jdbcType=VARCHAR},
+            <if test="passWord != null">
+                passWord = #{passWord,jdbcType=VARCHAR},
             </if>
-            <if test="aboutme != null">
-                aboutMe = #{aboutme,jdbcType=VARCHAR},
+            <if test="aboutMe != null">
+                aboutMe = #{aboutMe,jdbcType=VARCHAR},
             </if>
             <if test="email != null">
                 email = #{email,jdbcType=VARCHAR},

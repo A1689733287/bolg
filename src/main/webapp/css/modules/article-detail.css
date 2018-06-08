@@ -1,16 +1,37 @@
 .main .main_left .layui-form-pane {
     background: #FFFFFF;
-    padding:10px 20px 0px 20px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
 }
 
 .main .main_left .layui-card {
     margin: 15px auto;
 }
 
-.main .main_left .layui-form-pane .layui-form .layui-form-item .layui-input-block{
-    margin-left: 0px;
+.main .main_left .layui-card .layui-card-body {
+    padding: 0px 15px 10px 15px;
 }
 
+.main .main_left .layui-card .layui-card-body .comment_box {
+    width: 100%;
+    border: 1px solid dodgerblue;
+    padding: 0 10px;
+    margin: 10px 0;
+}
+
+.main .main_left .layui-card .layui-card-body .comment_box hr {
+    margin: 0;
+}
+
+.main .main_left .layui-card .layui-card-body .comment_box > p {
+    margin: 0;
+    padding-left: 30px;
+    line-height: 40px;
+}
+
+.main .main_left .layui-form-pane .layui-form .layui-form-item .layui-input-block {
+    margin-left: 0px;
+}
 
 .main .main_left .article-content .layui-card .layui-card-header {
     height: 80px;
@@ -39,7 +60,7 @@
     margin-top: 10px;
     line-height: 30px;
     padding: 0 10px;
-    background-color: lightgray;
+    background-color: #d1f5bf7a;
 }
 
 .main .main_left .article-row .prev {

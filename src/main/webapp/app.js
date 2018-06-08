@@ -20,12 +20,6 @@ app.config(function ($routeProvider, $locationProvider) {
     }).when('/archive', {
         templateUrl: 'modules/archive/article-archive.html',
         controller: 'ArticleArchiveController'
-    }).when('/freetime', {
-        templateUrl: 'modules/freetime/freetime-article.html',
-        controller: 'FreeTimeArticleController'
-    }).when('/freetime/:artcleCode', {
-        templateUrl: 'modules/freetime/freetime-detail-view.html',
-        controller: 'FreetimeDetailController'
     }).when('/about', {
         templateUrl: 'modules/about/about.html',
         controller: 'AboutMeController'

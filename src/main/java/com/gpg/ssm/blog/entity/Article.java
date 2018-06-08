@@ -10,7 +10,6 @@ public class Article {
     private String articleTitle;//文章标题
     private String articleContent;//文章内容
     private String articleImage; // 文章图片
-    private Integer typeId;//文章大类
     private Integer cateId;//文章小类
     private String summary;// 简要
     private Date writeDate;//编写时间
@@ -18,6 +17,7 @@ public class Article {
     private String tags;// 标签
     private Integer hits;// 点击量
     private Integer state;// 状态
+    private String code;
 
     public Integer getId() {
         return id;
@@ -49,14 +49,6 @@ public class Article {
 
     public void setArticleImage(String articleImage) {
         this.articleImage = articleImage;
-    }
-
-    public Integer getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
     }
 
     public Integer getCateId() {
@@ -115,6 +107,14 @@ public class Article {
         this.state = state;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
@@ -122,7 +122,6 @@ public class Article {
                 ", articleTitle='" + articleTitle + '\'' +
                 ", articleContent='" + articleContent + '\'' +
                 ", articleImage='" + articleImage + '\'' +
-                ", typeId=" + typeId +
                 ", cateId=" + cateId +
                 ", summary='" + summary + '\'' +
                 ", writeDate=" + writeDate +
@@ -130,6 +129,7 @@ public class Article {
                 ", tags='" + tags + '\'' +
                 ", hits=" + hits +
                 ", state=" + state +
+                ", code='" + code + '\'' +
                 '}';
     }
 }

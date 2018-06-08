@@ -2,10 +2,10 @@ app.controller("TagManageController", ["$uibModal", "$scope","$location",
     "TagManageService",function($uibModal, $scope,$location,
 		TagManageService) {
 	$scope.list = function() {
-		/*TagManageService.list().then(function(data) {
+		TagManageService.list().then(function(response) {
 			//console.log(data)
-			$scope.tags = data.resultData;
-		})*/
+			$scope.tags = response.data.data;
+		})
 	}
 	$scope.editTag = function(tag) {
 		var modalInstance = $uibModal.open({

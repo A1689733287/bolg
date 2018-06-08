@@ -9,6 +9,29 @@
     <sql id="Base_Column_List">
     id, tagName
   </sql>
+
+    <select id="selectByIds" resultMap="BaseResultMap">
+        SELECT * FROM t_tag
+        <if test="ids!=null">
+            <if test="ids.size()==0">
+                WHERE id = 0
+            </if>
+            <if test="ids.size()!=0">
+                WHERE id IN
+                <foreach collection="ids" index="index" item="item" open="("
+                         separator="," close=")">
+                    #{item,jdbcType=INTEGER}
+                </foreach>
+            </if>
+        </if>
+    </select>
+
+    <!--public List<T> list();-->
+    <select id="list" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_tag
+    </select>
     <!--public T queryById(Integer id);-->
     <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -30,7 +53,7 @@
             <if test="id != null">
                 id,
             </if>
-            <if test="tagname != null">
+            <if test="tagName != null">
                 tagName,
             </if>
         </trim>
@@ -38,8 +61,8 @@
             <if test="id != null">
                 #{id,jdbcType=BIGINT},
             </if>
-            <if test="tagname != null">
-                #{tagname,jdbcType=VARCHAR},
+            <if test="tagName != null">
+                #{tagName,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -48,8 +71,8 @@
     <update id="update" parameterType="com.gpg.ssm.blog.entity.Tag">
         update t_tag
         <set>
-            <if test="tagname != null">
-                tagName = #{tagname,jdbcType=VARCHAR},
+            <if test="tagName != null">
+                tagName = #{tagName,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=BIGINT}

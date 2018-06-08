@@ -5,6 +5,7 @@ import com.gpg.ssm.blog.dao.GuestMapper;
 import com.gpg.ssm.blog.entity.Comment;
 import com.gpg.ssm.blog.entity.Guest;
 import com.gpg.ssm.blog.service.CommentService;
+import com.gpg.ssm.blog.vo.ArticleCommentVo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,13 +23,16 @@ public class CommentServiceImpl extends BaseServiceImpl<Comment> implements Comm
     @Transactional
     public Integer addComment(Guest guest, Comment comment) {
         int insert = guestMapper.insert(guest);
-        comment.setGuestId(insert);
+        System.out.println(guest.getId());
+        comment.setGuestId(guest.getId());
+        System.err.println(comment);
         int i = commentMapper.insert(comment);
         return i;
     }
 
     @Override
-    public List<Comment> selectByArticleId(Integer articleId) {
+    public List<ArticleCommentVo> selectByArticleId(Integer articleId) {
         return commentMapper.selectByArticleId(articleId);
     }
+
 }

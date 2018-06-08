@@ -1,13 +1,13 @@
 package com.gpg.ssm.blog.controller;
 
-import com.gpg.ssm.blog.common.Capt;
 import com.gpg.ssm.blog.common.CommonResult;
-import com.gpg.ssm.blog.dao.CategoryMapper;
 import com.gpg.ssm.blog.entity.Category;
-import com.gpg.ssm.blog.entity.TypeCate;
+import com.gpg.ssm.blog.entity.Tag;
 import com.gpg.ssm.blog.entity.User;
-import com.gpg.ssm.blog.service.TypeCateService;
+import com.gpg.ssm.blog.service.CategoryService;
+import com.gpg.ssm.blog.service.TagService;
 import com.gpg.ssm.blog.service.UserService;
+import com.gpg.ssm.blog.vo.UserVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +20,6 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.ws.RequestWrapper;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -35,25 +34,29 @@ public class ManageControler {
     private UserService userServiceImpl;
 
     @Resource(name = "categoryServiceImpl")
-    private CategoryMapper categoryServiceImpl;
+    private CategoryService categoryServiceImpl;
 
-    @Resource(name = "cypeCateServiceImpl")
-    private TypeCateService cypeCateServiceImpl;
+    @Resource(name = "tagServiceImpl")
+    private TagService tagServiceImpl;
 
     /*登录成功*/
     @RequestMapping(value = "signin", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult login(@RequestBody User user, HttpServletRequest request) {
+    public CommonResult login(@RequestBody UserVo user, HttpServletRequest request) {
         System.out.println(user);
         if (user == null) {
             return new CommonResult(500, user, "用户名或密码不能为空");
         } else {
-            User u = userServiceImpl.queryByUserNmaeAndPwd(user);
-            if (u != null) {
-                request.getSession().setAttribute("user", u);
-                return new CommonResult(200, u, "登录成功");
+            if (checkCapt(user.getCode(), request)) {
+                User u = userServiceImpl.queryByUserNmaeAndPwd(user);
+                if (u != null) {
+                    request.getSession().setAttribute("user", u);
+                    return new CommonResult(200, u, "登录成功");
+                } else {
+                    return new CommonResult(404, u, "用户名或密码错误");
+                }
             } else {
-                return new CommonResult(404, u, "用户名或密码错误");
+                return new CommonResult(300, false, "验证码错误");
             }
         }
     }
@@ -104,16 +107,13 @@ public class ManageControler {
         outStream.close();
     }
 
-    @RequestMapping(value = "checkCapt", method = RequestMethod.POST)
-    @ResponseBody
-    public CommonResult checkCapt(@RequestBody Capt capt, HttpServletRequest request) {
+    public boolean checkCapt(String code, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        System.out.println(capt.getCode());
         String key = (String) session.getAttribute("valKey");
-        if (key.equals(capt.getCode())) {
-            return new CommonResult(200, null, "验证码正确");
+        if (key.equals(code)) {
+            return true;
         }
-        return new CommonResult(300, null, "验证码错误");
+        return false;
     }
 
     @RequestMapping(value = "author", method = RequestMethod.GET)
@@ -137,18 +137,25 @@ public class ManageControler {
     }
 
 
-    @RequestMapping(value = "category", method = RequestMethod.PUT)
+    @RequestMapping(value = "category", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult putCategory(@RequestBody Category category) {
         System.out.println(category);
         return new CommonResult(200, null, "");
     }
 
-
-    @RequestMapping(value = "typecate", method = RequestMethod.GET)
+    @RequestMapping(value = "update", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult getTypeCate() {
-        List<TypeCate> list = cypeCateServiceImpl.list();
+    public CommonResult update(@RequestBody User user) {
+        int update = userServiceImpl.update(user);
+        return new CommonResult(200, true, "");
+    }
+
+
+    @RequestMapping(value = "tagList", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult tagList() {
+        List<Tag> list = tagServiceImpl.list();
         return new CommonResult(200, list, "");
     }
 }

@@ -13,10 +13,8 @@ app.controller('SigninController', ['$scope', '$rootScope', 'SigninService', '$l
     $scope.signIn = function () {
         user.userName = $scope.account;
         user.passWord = Md5($scope.userpass);
-        $scope.checkCapt();
+        user.code = $scope.captche;
         SigninService.post(user).then(function (response) {
-
-            console.log(response);
             if (response.data.code == 500) {
                 layui.use('layer', function () {
                     layer.msg(response.data.msg, {icon: 5});
@@ -32,6 +30,12 @@ app.controller('SigninController', ['$scope', '$rootScope', 'SigninService', '$l
             if (response.data.code == 200) {
                 $location.path("/manage/about")
             }
+            if (response.data.code == 300) {
+                layui.use('layer', function () {
+                    layer.msg(response.data.msg, {icon: 5});
+                });
+                return false;
+            }
         });
     };
 
@@ -39,22 +43,6 @@ app.controller('SigninController', ['$scope', '$rootScope', 'SigninService', '$l
         $("#catpche").attr('src', '/manage/getCaptcha.do?date=' + new Date().getTime());
     };
 
-    $scope.checkCapt = function () {
-        var capt = {code: ""};
-        capt.code = $scope.captche;
-        SigninService.checkCapt(capt).then(function (response) {
-            console.log(response.data)
-            if (response.data.code == 300) {
-                layui.use('layer', function () {
-                    layer.msg(response.data.msg, {icon: 5});
-                });
-                return false;
-            }
-            if (response.data.code == 200) {
-                return true;
-            }
-        });
-    }
 
     function Md5(data) {
         var hash = md5.create();

@@ -1,6 +1,6 @@
 app.service("TagManageService", function(RequestService) {
     this.list = function () {
-    	return RequestService.getRequest('/manage/tag', cfg_form);
+    	return RequestService.getRequest('/manage/tagList.do', cfg_form);
     };
     this.put = function(tag){
     	return RequestService.putRequest("/manage/tag", tag, cfg_json);

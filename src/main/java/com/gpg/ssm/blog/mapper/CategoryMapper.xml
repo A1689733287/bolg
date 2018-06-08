@@ -3,13 +3,12 @@
 <mapper namespace="com.gpg.ssm.blog.dao.CategoryMapper">
     <resultMap id="BaseResultMap" type="com.gpg.ssm.blog.entity.Category">
         <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="typeId" jdbcType="BIGINT" property="typeId"/>
         <result column="cateName" jdbcType="VARCHAR" property="cateName"/>
         <result column="count" jdbcType="BIGINT" property="count"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-    id, typeId, cateName, count
+    id, cateName, count
   </sql>
 
     <select id="list" resultMap="BaseResultMap">
@@ -36,10 +35,7 @@
             <if test="id != null">
                 id,
             </if>
-            <if test="typeid != null">
-                typeId,
-            </if>
-            <if test="catename != null">
+            <if test="cateName != null">
                 cateName,
             </if>
             <if test="count != null">
@@ -50,11 +46,8 @@
             <if test="id != null">
                 #{id,jdbcType=BIGINT},
             </if>
-            <if test="typeid != null">
-                #{typeid,jdbcType=BIGINT},
-            </if>
-            <if test="catename != null">
-                #{catename,jdbcType=VARCHAR},
+            <if test="cateName != null">
+                #{cateName,jdbcType=VARCHAR},
             </if>
             <if test="count != null">
                 #{count,jdbcType=BIGINT},
@@ -66,11 +59,8 @@
     <update id="update" parameterType="com.gpg.ssm.blog.entity.Category">
         update t_category
         <set>
-            <if test="typeid != null">
-                typeId = #{typeid,jdbcType=BIGINT},
-            </if>
-            <if test="catename != null">
-                cateName = #{catename,jdbcType=VARCHAR},
+            <if test="cateName != null">
+                cateName = #{cateName,jdbcType=VARCHAR},
             </if>
             <if test="count != null">
                 count = #{count,jdbcType=BIGINT},

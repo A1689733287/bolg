@@ -6,3 +6,12 @@
 	-o-transition: width 0.3s ease;
 	transition: width 0.3s ease;
 }
+
+.form-horizontal .form-group {
+	margin: 0;;
+}
+
+
+.row {
+	margin:0;
+}
