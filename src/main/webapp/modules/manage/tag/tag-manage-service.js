@@ -6,7 +6,7 @@ app.service("TagManageService", function(RequestService) {
     	return RequestService.putRequest("/manage/tag", tag, cfg_json);
     }
     this.deleteById = function(tagId){
-    	return RequestService.deleteRequest("/manage/tag/"+tagId, cfg_form);
+    	return RequestService.postRequest("/manage/tag/"+tagId, cfg_form);
     }
 	this.getArticles = function(tagId){
 		return RequestService.getRequest("/manage/tag/"+tagId, cfg_form);
