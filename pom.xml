@@ -279,9 +279,9 @@
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>2.2</version>
                     <configuration>
-                        <url>http://118.24.118.77/manager/text</url>                <!-- tomcat7部署管理路径 -->
+                        <url>http://118.24.118.77/manager/text</url>  <!-- tomcat7部署管理路径 -->
                         <server>tomcat7</server> <!--对应mavenServcer 中设置的ID-->
-                        <username>manage</username>       <!--管理员帐号-->                         <!-- tomcat的管理员账号 -->
+                        <username>manage</username>       <!--管理员帐号-->
                         <password>manage</password> <!--密码-->
                         <charset>UTF-8</charset> <!--编码-->
                         <path>/</path> <!-- 路径-->

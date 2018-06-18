@@ -3,3 +3,4 @@ app.service('AboutMeService', ['RequestService', function (RequestService) {
         return RequestService.getRequest("/about/author.do", cfg_form);
     }
 }]);
+

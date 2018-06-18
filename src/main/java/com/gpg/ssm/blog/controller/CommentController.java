@@ -16,7 +16,7 @@ public class CommentController {
     @Resource(name = "commentServiceImpl")
     private CommentService commentServiceImpl;
 
-    @RequestMapping(value = "add", method = RequestMethod.GET)
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult addComment(@RequestBody ArticleCommentVo articleCommentVo) {
         Integer result = commentServiceImpl.addComment(articleCommentVo.getGuest(), articleCommentVo.getComment());
